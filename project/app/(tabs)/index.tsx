@@ -1,13 +1,16 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
+import popmartImage from '../../assets/images/popmart.png';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={{ uri: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3' }}
+          source={popmartImage}
           style={styles.banner}
+          resizeMode="cover"
+          onError={(error) => console.error('Image loading error:', error.nativeEvent.error)}
         />
         <Text style={styles.title}>Welcome to POPMART</Text>
       </View>
@@ -50,18 +53,22 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    height: 250,
+    height: 200,
     position: 'relative',
+    overflow: 'hidden',
+    backgroundColor: '#f0f0f0',
   },
   banner: {
     width: '100%',
     height: '100%',
+    resizeMode: 'cover',
+    backgroundColor: '#f0f0f0',
   },
   title: {
     position: 'absolute',
     bottom: 20,
     left: 20,
-    fontSize: 32,
+    fontSize: 28,
     fontFamily: 'Inter-Bold',
     color: '#FFFFFF',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',

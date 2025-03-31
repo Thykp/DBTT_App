@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Chrome as Home, Scan, Gift, User } from 'lucide-react-native';
+import { Chrome as Home, Scan, Gift, User, MessageSquare } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
@@ -33,6 +33,13 @@ export default function TabLayout() {
         options={{
           title: 'Rewards',
           tabBarIcon: ({ color, size }) => <Gift size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="community"
+        options={{
+          title: 'Community',
+          tabBarIcon: ({ color, size }) => <MessageSquare size={size} color={color} />,
         }}
       />
       <Tabs.Screen
